@@ -3,28 +3,29 @@ import Produtos from './Produtos.js'
 
 const ListaProdutos = () => {
 
-    function orgPreco() {
-
+    function orgPreco(event) {
+        event.preventDefault()
     }
 
-    function orgScore() {
-
+    function orgScore(event) {
+        event.preventDefault()
     }
 
-    function orgAZ() {
-
+    function orgAZ(event) {
+        event.preventDefault()
     }
-    return (
-        <div>
-            <h1>Lista de Produtos</h1>
-            <div>
-                <p>Ordenar por: </p>
-                <button className="btn" onClick={orgPreco}>Preço</button>
-                <button className="btn" onClick={orgScore}>Popularidade(Score)</button>
-                <button className="btn" onClick={orgAZ}>Ordem Alfabética</button>
+    return (            
+            <div className="mainContent">
+                <div className="headerLista">
+                    <h1>Lista de Produtos</h1>
+                    <p>Ordenar por: </p>
+                    <button className="btn" onClick={orgPreco}>Preço</button>
+                    <button className="btn" onClick={orgScore}>Popularidade(Score)</button>
+                    <button className="btn" onClick={orgAZ}>Ordem Alfabética</button>
+                </div>
+                <Produtos />
             </div>
-            <Produtos />
-        </div>
+            
     )
 }
 

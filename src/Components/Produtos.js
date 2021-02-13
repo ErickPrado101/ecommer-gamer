@@ -1,10 +1,10 @@
 import React from 'react'
+import Api from './Api.js'
 
 const Produtos = () => {
+
     return (
-        <div>
-            Olá
-        </div>
+            <Api />
     )
 }
 
