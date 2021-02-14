@@ -43,15 +43,15 @@ const ListaProdutos = () => {
   return (
     <div className="mainContent">
       <div className="headerLista">
-        <h1>Lista de Produtos</h1>
+        <h2>Lista de Produtos</h2>
         <p>Ordenar por: </p>
-        <button className="btn btn-org" onClick={orgPreco}>
+        <button className="btn btnOrg" onClick={orgPreco}>
           Preço
         </button>
-        <button className="btn btn-org" onClick={orgScore}>
+        <button className="btn btnOrg" onClick={orgScore}>
           Popularidade(Score)
         </button>
-        <button className="btn btn-org" onClick={orgAZ}>
+        <button className="btn btnOrg" onClick={orgAZ}>
           Ordem Alfabética
         </button>
       </div>

@@ -17,14 +17,14 @@ const Api = () => {
   const listItem = produto.map((item) => (
     <div className="produto" key={item.id}>
       <img src={`./assets/${item.image}`} alt={item.name} />
-      <p>Preço: {item.price.toLocaleString('pt-BR', {
+      <p className="precoProduto">{item.price.toLocaleString('pt-BR', {
           style: 'currency',
           currency: 'BRL'
       })}</p>
-      <p>Nome: {item.name}</p>
-      <p>Score: {item.score}</p>
-      <button className="btn btn-produto">
-        Adicionar ao Carrinho
+      <p>{item.name}</p>
+      <p className="scoreProduto">Score: {item.score}</p>
+      <button className="btn btnProduto">
+      + Adicionar ao Carrinho
       </button>
     </div>
   ));
