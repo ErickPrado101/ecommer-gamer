@@ -1,107 +1,149 @@
 /* Estilos Gerais */
 
-body, h1, h2, ul, li, p {
-    padding: 0;
-    margin: 0;
+body,
+h1,
+h2,
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #app {
-    background: #ccc;
+  background: #ccc;
 }
 
 .btn {
-    padding: 10px 30px;
-    background: #87f;
-    border-radius: 4px;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-    box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
-    transition: all 0.3s;
-    border: none;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    cursor: pointer;
-  }
+  padding: 10px 30px;
+  background: #87f;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
+  transition: all 0.3s;
+  border: none;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #65d;
+  transform: scale(1.1);
+}
 
 /* Estilo da lista */
 
 .mainContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: blue;
+  font-size: 1.1rem;
 }
 
-.headerLista{
-    margin-bottom: 40px;
+.headerLista {
+  margin-bottom: 40px;
 }
 
 .listaProdutos {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-content: center;
-    justify-content: center;
-    max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  align-content: center;
+  justify-content: center;
 }
 
+.produto {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.produto p {
+  margin: 5px;
+}
+
+.btn-org {
+  margin-right: 10px;
+}
+
+.btn-produto {
+  margin-top: 10px;
+}
 /* Estilos do Header */
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    max-width: 900px;
-    padding: 20px 0;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  padding: 20px 0;
+  margin: 0 auto;
 }
 
 .carrinho_menu img {
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
 }
-
 
 /* Estilo do Loading */
 
 .loading {
-    text-align: center;
-    margin-top: 80px;
+  text-align: center;
+  margin-top: 80px;
 }
 .loading span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background: #87f;
-    margin: 4px;
-    animation: dots .6s cubic-bezier(0.6, 0.1, 1, .4) infinite alternate;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #87f;
+  margin: 4px;
+  animation: dots 0.6s cubic-bezier(0.6, 0.1, 1, 0.4) infinite alternate;
 }
 .loading span:nth-child(1) {
-    animation-delay: .1s;
+  animation-delay: 0.1s;
 }
 .loading span:nth-child(2) {
-    animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .loading span:nth-child(3) {
-    animation-delay: .3s;
+  animation-delay: 0.3s;
 }
 .loading span:nth-child(4) {
-    animation-delay: .4s;
+  animation-delay: 0.4s;
 }
-@keyframes dots{
-    from {
-        transform: translate3d(0, 0, 0);
-    }    
-    to {
-        transform: translate3d(0, 30px ,0);
-    }
+@keyframes dots {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 30px, 0);
+  }
+}
+
+/* Footer */
+
+footer {
+  background: #87f;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  position: relative;
+  top: 75px;
 }

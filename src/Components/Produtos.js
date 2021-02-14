@@ -1,11 +1,8 @@
-import React from 'react'
-import Api from './Api.js'
+import React from "react";
+import Api from "./Api.js";
 
 const Produtos = () => {
+  return <Api />;
+};
 
-    return (
-            <Api />
-    )
-}
-
-export default Produtos
+export default Produtos;
