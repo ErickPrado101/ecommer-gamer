@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Carregando from "./Carregando.js";
 
-const Api = () => {
-  const [produto, setProduto] = useState([]);
-  const [carregado, setCarregado] = useState(false);
+const ListaProdutos = ({carrinho, setCarrinho}) => {
+  const [produto, setProduto] = React.useState([]);
+  const [carregado, setCarregado] = React.useState(false);
+  const [ordem, setOrdem] = React.useState([]);
 
-
-  function fetchDados() {
+  React.useEffect(() => {
     fetch("./products.json")
     .then((r) => r.json())
     .then((json) => {
       setProduto(json);
       setCarregado(true);
     });
-  }
+  }, []);
 
-  useEffect(() => {
-    fetchDados();
-  },[]);
+  React.useEffect(() => {
+    setProduto(ordem)
+  }, [ordem])
 
   function orgPreco() {
-    setProduto(
+    setOrdem(
       produto.sort((a, b) =>
         a.price < b.price ? -1 : a.price === b.price ? 0 : 1
       )
@@ -28,7 +28,7 @@ const Api = () => {
   }
 
   function orgScore() {
-    setProduto(
+    setOrdem(
       produto.sort((a, b) =>
         a.score < b.score ? -1 : a.score === b.score ? 0 : 1
       )
@@ -36,7 +36,9 @@ const Api = () => {
   }
 
   function orgAZ() {
+    setOrdem(
       produto.sort((a, b) => (a.name < b.name ? -1 : a.name === b.name ? 0 : 1))
+    )
   }
 
   const listItem = produto.map((item) => (
@@ -50,7 +52,7 @@ const Api = () => {
       </p>
       <p>{item.name}</p>
       <p className="scoreProduto">Score: {item.score}</p>
-      <button className="btn btnProduto">+ Adicionar ao Carrinho</button>
+      <button className="btn btnProduto" onClick={() => setCarrinho(carrinho+1)}>+ Adicionar ao Carrinho</button>
     </div>
   ));
 
@@ -63,9 +65,9 @@ const Api = () => {
           Preço
         </button>
         <button className="btn btnOrg" onClick={orgScore}>
-          Popularidade(Score)
+          Popularidade (Score)
         </button>
-        <button className="btn btnOrg" onClick={() => setProduto(orgAZ)}>
+        <button className="btn btnOrg" onClick={orgAZ}>
           Ordem Alfabética
         </button>
       </div>
@@ -77,6 +79,5 @@ const Api = () => {
     </div>
   );
 };
-//() => setBotao(true)
-//&& botao.currentTarget.className.includes('btnOrg')
-export default Api;
+
+export default ListaProdutos;

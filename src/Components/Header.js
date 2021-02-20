@@ -1,13 +1,15 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({carrinho}) => {
+
+  
 
   return (
     <header className="header">
       <nav className="nav">
         <h1 className="logo"><a href="/">Games</a></h1>
         <div className="carrinhoMenu">
-          <p>0</p><img src="./assets/cart-icon.svg" alt="Carrinho" />
+          <p>{carrinho}</p><img src="./assets/cart-icon.svg" alt="Carrinho" />
         </div>
       </nav>
     </header>
