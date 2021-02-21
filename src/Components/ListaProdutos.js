@@ -5,6 +5,7 @@ const ListaProdutos = ({carrinho, setCarrinho}) => {
   const [produto, setProduto] = React.useState([]);
   const [carregado, setCarregado] = React.useState(false);
   const [ordem, setOrdem] = React.useState([]);
+  const [produtoCarrinho, setProdutoCarrinho] = React.useState([]);
 
   React.useEffect(() => {
     fetch("./products.json")
@@ -41,6 +42,11 @@ const ListaProdutos = ({carrinho, setCarrinho}) => {
     )
   }
 
+  function addCarrinho(event) {
+    setCarrinho(carrinho+1)
+    setProdutoCarrinho(event.currentTarget.parentNode)
+  }
+
   const listItem = produto.map((item) => (
     <div className="produto" key={item.id}>
       <img src={`./assets/${item.image}`} alt={item.name} />
@@ -52,7 +58,7 @@ const ListaProdutos = ({carrinho, setCarrinho}) => {
       </p>
       <p>{item.name}</p>
       <p className="scoreProduto">Score: {item.score}</p>
-      <button className="btn btnProduto" onClick={() => setCarrinho(carrinho+1)}>+ Adicionar ao Carrinho</button>
+      <button className="btn btnProduto" onClick={addCarrinho}>+ Adicionar ao Carrinho</button>
     </div>
   ));
 
