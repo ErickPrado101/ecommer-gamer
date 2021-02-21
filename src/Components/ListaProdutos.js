@@ -1,84 +1,34 @@
 import React from "react";
 import Carregando from "./Carregando.js";
+import Produto from "./Produto.js";
+import Ordenar from "./Ordenar.js";
 
 const ListaProdutos = ({carrinho, setCarrinho}) => {
   const [produto, setProduto] = React.useState([]);
-  const [carregado, setCarregado] = React.useState(false);
+  const [carregado, setCarregado] = React.useState(null);
   const [ordem, setOrdem] = React.useState([]);
-  const [produtoCarrinho, setProdutoCarrinho] = React.useState([]);
 
   React.useEffect(() => {
+    setCarregado(false)
     fetch("./products.json")
     .then((r) => r.json())
     .then((json) => {
       setProduto(json);
-      setCarregado(true);
     });
+    setCarregado(true);
   }, []);
 
   React.useEffect(() => {
-    setProduto(ordem)
+      setProduto(ordem)
   }, [ordem])
-
-  function orgPreco() {
-    setOrdem(
-      produto.sort((a, b) =>
-        a.price < b.price ? -1 : a.price === b.price ? 0 : 1
-      )
-    );
-  }
-
-  function orgScore() {
-    setOrdem(
-      produto.sort((a, b) =>
-        a.score < b.score ? -1 : a.score === b.score ? 0 : 1
-      )
-    );
-  }
-
-  function orgAZ() {
-    setOrdem(
-      produto.sort((a, b) => (a.name < b.name ? -1 : a.name === b.name ? 0 : 1))
-    )
-  }
-
-  function addCarrinho(event) {
-    setCarrinho(carrinho+1)
-    setProdutoCarrinho(event.currentTarget.parentNode)
-  }
-
-  const listItem = produto.map((item) => (
-    <div className="produto" key={item.id}>
-      <img src={`./assets/${item.image}`} alt={item.name} />
-      <p className="precoProduto">
-        {item.price.toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        })}
-      </p>
-      <p>{item.name}</p>
-      <p className="scoreProduto">Score: {item.score}</p>
-      <button className="btn btnProduto" onClick={addCarrinho}>+ Adicionar ao Carrinho</button>
-    </div>
-  ));
 
   return (
     <div className="mainContent">
-      <div className="headerLista">
-        <h2>Lista de Produtos</h2>
-        <p>Ordenar por: </p>
-        <button className="btn btnOrg" onClick={orgPreco}>
-          Preço
-        </button>
-        <button className="btn btnOrg" onClick={orgScore}>
-          Popularidade (Score)
-        </button>
-        <button className="btn btnOrg" onClick={orgAZ}>
-          Ordem Alfabética
-        </button>
-      </div>
+      <Ordenar setOrdem={setOrdem} produto={produto}/>
       {carregado === true ? (
-        <div className="listaProdutos">{listItem}</div>
+        <div className="listaProdutos">
+          <Produto produto={produto} setCarrinho={setCarrinho} carrinho={carrinho}/>
+        </div>
       ) : (
         <Carregando />
       )}
