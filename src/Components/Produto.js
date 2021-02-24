@@ -1,13 +1,17 @@
 import React from "react";
+import { AppContext } from "../Context/AppContext";
 
-const Produto = ({ produto, setCarrinho, carrinho }) => {
+const Produto = () => {
+
+  const { carrinho, setCarrinho, produto } = React.useContext(AppContext)
+
   function addCarrinho() {
-    setCarrinho(carrinho + 1);
+    setCarrinho(carrinho+1);
   }
 
-  return produto.map((item) => {
+  return produto.map((item, index) => {
     return (
-      <div className="produto" key={item.id}>
+      <div className="produto" key={index}>
         <img src={`./assets/${item.image}`} alt={item.name} />
         <p className="precoProduto">
           {item.price.toLocaleString("pt-BR", {

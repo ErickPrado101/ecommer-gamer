@@ -5,12 +5,10 @@ import ListaProdutos from "./Components/ListaProdutos.js";
 
 function App() {
 
-  const [carrinho, setCarrinho] = React.useState(0);
-
   return (
     <div id="app">
-      <Header carrinho={carrinho} />
-      <ListaProdutos carrinho={carrinho} setCarrinho={setCarrinho}/>
+      <Header />
+      <ListaProdutos />
       <Footer />
     </div>
   );
