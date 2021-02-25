@@ -16,21 +16,29 @@ const Carrinho = () => {
   }, [carrinho]);
 
   return (
-    <div>
-      <button onClick={() => setPaginaCarrinho(false)}>X</button>
-      <div>
-        <h1>Seus Produtos</h1>
-        Produtos
+    <div className="modalContainer">
+      <div className="modal">
+        <button className="modalBotaoFechar" onClick={() => setPaginaCarrinho(false)}>X</button>
+        <div className="modalProdutosNoCarrinho">
+          <h1>Seus Produtos</h1>
+          {carrinho > 0 ? 'Produtos comprados' : 'Seu carrinho está vazio'}
+        </div>
+        {carrinho > 0 ? (
+          <div className="modalValorPagar">
+          <p>
+            <span>Frete: </span>
+            {frete.toLocaleString("Pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
+          <p>SubTotal: Soma dos Produtos</p>
+          <p>Total: Soma dos produtos com frete</p>
+          <button className="btn">Finalizar Compra</button>
+        </div>        
+        ) : ''}
+        
       </div>
-      <p>
-        <span>Frete: </span>
-        {frete.toLocaleString("Pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        })}
-      </p>
-      <p>SubTotal: Soma dos Produtos</p>
-      <p>Total: Soma dos produtos com frete</p>
     </div>
   );
 };

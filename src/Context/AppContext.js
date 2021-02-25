@@ -8,6 +8,7 @@ export function GeneralContext({children}) {
     const [ordem, setOrdem] = React.useState(null);
     const [carregado, setCarregado] = React.useState(null);
     const [paginaCarrinho, setPaginaCarrinho] = React.useState(false);
+    const [produtoCarrinho, setProdutoCarrinho] = React.useState([]);
 
     React.useEffect(() => {
         fetch("./products.json")
@@ -32,7 +33,9 @@ export function GeneralContext({children}) {
             produto,
             ordem,
             carregado,
-            paginaCarrinho
+            paginaCarrinho,
+            setProdutoCarrinho,
+            produtoCarrinho
         }}>
             {children}
         </AppContext.Provider>

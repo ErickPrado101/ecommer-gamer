@@ -6,24 +6,17 @@ const Ordenar = () => {
 
   function orgPreco() {
     setOrdem(
-      produto.sort((a, b) =>
-        a.price < b.price ? -1 : a.price === b.price ? 0 : 1
-      )
-    );
+      produto.sort((a, b) => a.price < b.price ? -1 : a.price === b.price ? 0 : 1));
   }
 
   function orgScore() {
     setOrdem(
-      produto.sort((a, b) =>
-        a.score < b.score ? -1 : a.score === b.score ? 0 : 1
-      )
-    );
+      produto.sort((a, b) => a.score < b.score ? -1 : a.score === b.score ? 0 : 1));
   }
 
   function orgAZ() {
     setOrdem(
-      produto.sort((a, b) => (a.name < b.name ? -1 : a.name === b.name ? 0 : 1))
-    );
+      produto.sort((a, b) => a.name < b.name ? -1 : a.name === b.name ? 0 : 1));
   }
 
   return (

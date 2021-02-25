@@ -6,7 +6,8 @@ const Header = () => {
   
   const { carrinho, paginaCarrinho, setPaginaCarrinho } = React.useContext(AppContext)
 
-  return (
+  if (paginaCarrinho) return <Carrinho />
+  return (    
     <header className="header">
       <nav className="nav">
         <h1 className="logo">
@@ -17,9 +18,6 @@ const Header = () => {
           <img src="./assets/cart-icon.svg" alt="Carrinho" />
         </div>
       </nav>
-      {paginaCarrinho && (
-        <Carrinho />
-      )}
     </header>
   );
 };

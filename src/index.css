@@ -103,6 +103,57 @@ ul {
   }
 }
 
+/* Modal */
+
+.modalContainer {
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0, .5);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  flex: 1;
+  position: relative;
+  background: white;
+  max-width: 900px;
+  padding: 30px;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalValorPagar {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.modalBotaoFechar {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  border-radius: 50%;
+  border: none;
+  background: #87f;
+  color: white;
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: .3s;
+}
+
+.modalBotaoFechar:hover {
+  background: #65d;
+  transform: scale(1.1);
+  transition: .3s;
+}
+
 /* Estilo do Loading */
 
 .loading {
@@ -179,6 +230,14 @@ ul {
   justify-content: center;
   transition: .3s;
   background: white;
+}
+
+.produtoCounteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .produto img {
