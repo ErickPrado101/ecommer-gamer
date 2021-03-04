@@ -2,40 +2,50 @@ import React from "react";
 import { AppContext } from "../Context/AppContext";
 
 const Carrinho = () => {
-  const { carrinho, setPaginaCarrinho, produtoCarrinho } = React.useContext(
-    AppContext
-  );
+  const {
+    carrinho,
+    setPaginaCarrinho,
+    produtoCarrinho,
+    setCarrinho,
+  } = React.useContext(AppContext);
   const [frete, setFrete] = React.useState(0);
-  const [precoProduto, setPrecoProduto] = React.useState([]);
   const [valorTotalProdutos, setValorTotalProdutos] = React.useState(0);
 
-  const total = 0;
+  const total = valorTotalProdutos + frete;
 
   React.useEffect(() => {
-    if (total < 250) {
-      setFrete(carrinho * 10);
-    } else {
-      setFrete(0);
-    }
-  }, [carrinho]);
+    calculoFrete(carrinho);
+  });
+
+  function calculoFrete(qntItens) {
+    (total < 250) ? setFrete(qntItens * 10) : setFrete(0)
+  }
 
   React.useEffect(() => {
     puxarPrecosProdutosCarrinho(produtoCarrinho);
-  }, [produtoCarrinho]);
+  });
 
   function puxarPrecosProdutosCarrinho(produtoCarrinho) {
-    const precosDosProdutos = produtoCarrinho.map((item) => item.price);
-    setPrecoProduto([precosDosProdutos]);
+    if (produtoCarrinho.length > 0) {
+      const precosDosProdutos = produtoCarrinho.map((item) => item.price);
+      const somaTotal = precosDosProdutos.reduce(
+        (acc, valor) => (acc += valor)
+      );
+      setValorTotalProdutos(somaTotal);
+    }
   }
 
-  /*React.useEffect(() => {
-      somarPrecosProdutosCarrinho(precoProduto);
-  }, [precoProduto]);*/
+  function converterParaReal(valor) {
+    return valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  }
 
-  /*function somarPrecosProdutosCarrinho(precoProduto) {
-    const precoSomado = precoProduto[0].reduce((acc, valorAtual) => (acc + valorAtual),0);
-    setValorTotalProdutos(precoSomado);
-  }*/
+  function removerProdutoCarrinho(index) {
+    produtoCarrinho.splice(index, 1);
+    setCarrinho(carrinho - 1);
+  }
 
   return (
     <div className="modalContainer">
@@ -48,40 +58,48 @@ const Carrinho = () => {
         </button>
         <h1>Seus Produtos</h1>
         <div className="modalProdutosNoCarrinho">
-          {carrinho > 0
-            ? produtoCarrinho.map((item, index) => {
-                return (
-                  <div className="produto produtoCarrinho" key={index}>
-                    <div className="produtoCounteudo">
-                      <img src={`./assets/${item.image}`} alt={item.name} />
-                      <p className="precoProduto">
-                        {item.price.toLocaleString("pt-BR", {
-                          style: "currency",
-                          currency: "BRL",
-                        })}
-                      </p>
-                      <p>{item.name}</p>
-                    </div>
+          {carrinho > 0 ? (
+            produtoCarrinho.map((item, index) => {
+              return (
+                <div className="produto produtoCarrinho" key={index}>
+                  <div className="produtoCounteudo">
+                    <img src={`./assets/${item.image}`} alt={item.name} />
+                    <p className="precoProduto">
+                      {item.price.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </p>
+                    <p>{item.name}</p>
                   </div>
-                );
-              })
-            : "Seu carrinho está vazio"}
+                  <button onClick={() => removerProdutoCarrinho(index)}>
+                    🗑
+                  </button>
+                </div>
+              );
+            })
+          ) : (
+            <div className="modalCarrinhoVazio">
+              <p>Seu carrinho está vazio.</p>
+              <button className="btn" onClick={() => setPaginaCarrinho(false)}>
+                Voltar
+              </button>
+            </div>
+          )}
         </div>
-        {carrinho > 0 ? (
+        {carrinho > 0 && (
           <div className="modalValorPagar">
             <p>
               <span>Frete: </span>
-              {frete.toLocaleString("Pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
+              {converterParaReal(frete)}
             </p>
-            <p>SubTotal: {valorTotalProdutos}</p>
-            <p>Total: Soma dos produtos com frete</p>
+            <p>
+              SubTotal:{" "}
+              {carrinho > 0 ? converterParaReal(valorTotalProdutos) : "0"}
+            </p>
+            <p>Total: {converterParaReal(total)}</p>
             <button className="btn">Finalizar Compra</button>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </div>

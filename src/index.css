@@ -113,6 +113,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
 }
 
 .modal {
@@ -177,6 +178,29 @@ ul {
 }
 .produtoCarrinho > div p {
   font-size: 0.825rem;
+}
+
+.produtoCarrinho button {
+  background: #87f;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.produtoCarrinho button:hover {
+  background: #65d;
+}
+
+.modalCarrinhoVazio {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalCarrinhoVazio button {
+  margin-top: 1rem;
 }
 
 /* Estilo do Loading */
