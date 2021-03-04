@@ -3,11 +3,11 @@ import { AppContext } from "../Context/AppContext";
 
 const Produto = () => {
 
-  const { carrinho, setCarrinho, produto} = React.useContext(AppContext)
+  const { carrinho, setCarrinho, produto, setProdutoCarrinho, produtoCarrinho} = React.useContext(AppContext)
 
-  function addCarrinho(item) {
+  function addCarrinho(produtoComprado) {
     setCarrinho(carrinho+1);
-    console.log(item)
+    setProdutoCarrinho([...produtoCarrinho, produtoComprado]);
   }
 
   return produto.map((item, index) => {
