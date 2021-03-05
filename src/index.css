@@ -319,11 +319,13 @@ ul {
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
+  background: black;
+  width: 100%;
 }
 
 .headerLista {
-  margin: 40px 0;
-  text-align: center;
+  padding: 2rem 0;
+  text-align: center;  
 }
 
 .headerLista h2 {
@@ -333,6 +335,14 @@ ul {
 
 .headerLista p {
   margin: 5px 0 20px 0;
+  color: white;
+}
+
+.containerListaProdutos {
+  background: url('http://pixeljoint.com/files/icons/full/darkforestbackground_cont.png');
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .listaProdutos {
@@ -340,17 +350,18 @@ ul {
   grid-template-columns: repeat(3, 300px);
   gap: 30px;
   align-content: center;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .produto {
-  margin-bottom: 30px;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: .3s;
-  background: white;
+  background: rgba(255,255,255, .9);
+  margin-bottom: 2rem;
 }
 
 .produtoCounteudo {
@@ -404,14 +415,28 @@ ul {
 
 @media (max-width: 650px) {
   .listaProdutos {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .headerLista {
     display: flex;
     flex-direction: column;
   }
   .headerLista button {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
+  }
+  .produto {
+    flex: 1; 
+  }
+  .produto p,
+  .produto button {
+    font-size: 0.875rem;
+  }
+  .produto img {
+    height: 120px;
+    width: 120px;
   }
 }
 
@@ -424,5 +449,4 @@ footer {
   font-size: 1.2rem;
   color: white;
   position: relative;
-  top: 75px;
 }

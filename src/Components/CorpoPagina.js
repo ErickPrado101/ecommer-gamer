@@ -13,8 +13,10 @@ const CorpoPagina = () => {
     <div className="mainContent">
       <Ordenar />
       {carregado ? (
-        <div className="listaProdutos">
-          <Produto />
+        <div className="containerListaProdutos">
+          <div className="listaProdutos">
+            <Produto />
+          </div>
         </div>
       ) : (
         <Carregando />
