@@ -46,7 +46,7 @@ const ModalCarrinho = () => {
           {carrinho > 0 ? (
             produtoCarrinho.map((item, index) => {
               return (
-                <div className="produto produtoCarrinho" key={index}>
+                <div className="produtoCarrinho" key={index}>
                   <div className="produtoCounteudo">
                     <img src={`./assets/${item.image}`} alt={item.name} />
                     <p className="precoProduto">
@@ -79,10 +79,10 @@ const ModalCarrinho = () => {
               {converterParaReal(frete)}
             </p>
             <p>
-              SubTotal:{" "}
+              <span>SubTotal:</span>{" "}
               {carrinho > 0 ? converterParaReal(valorTotalProdutos) : "0"}
             </p>
-            <p>Total: {total()}</p>
+            <p><span>Total:</span> {total()}</p>
             <button className="btn">Finalizar Compra</button>
           </div>
         )}
