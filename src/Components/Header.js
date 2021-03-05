@@ -11,12 +11,11 @@ const Header = () => {
   return (    
     <header className="header">
       <nav className="nav">
-        <h1 className="logo">
-          <a href="/">Games</a>
-        </h1>
+        <img className="logoImg" src="../assets/gamepad.svg" alt="gamepad"/>
+        <h1 className="logo">Games</h1>
         <div className="carrinhoMenu" onClick={() => setPaginaCarrinho(true)}>
-          <p>{carrinho}</p>
-          <img src="./assets/cart-icon.svg" alt="Carrinho" />
+          <p><img src="./assets/cart-icon.svg" alt="Carrinho" /><span className="carrinhoNumero">{carrinho}</span></p>
+          
         </div>
       </nav>
     </header>

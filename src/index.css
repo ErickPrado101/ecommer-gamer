@@ -50,11 +50,16 @@ ul {
   background: #87f;
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
 }
-.logo a{
+.logoImg {
+  height: 40px;
+  width: 40px;
+}
+
+.logo{
   color: white;
   transition: .3s;
 }
-.logo a:hover {
+.logo:hover {
   color: rgba(245,245,245, .5);
   transition: .3s;
 }
@@ -77,6 +82,7 @@ ul {
   justify-content: center;
   cursor: pointer;
   transition: .3s;
+  position: relative;
 }
 .carrinhoMenu:hover {
   transform: scale(1.1);
@@ -86,8 +92,20 @@ ul {
   height: 30px;
   width: 30px;
 }
-.carrinhoMenu p {
-  font-size: 1.5rem;
+.carrinhoNumero {
+  position: absolute;
+  background: white;
+  border-radius: 10px;
+  padding: 0.1rem 0.3rem;
+  bottom: -8px;
+  right: 0;
+  color: red;
+  font-size: 0.9rem;
+  transition: ease-in-out .3s;
+}
+
+.carrinhoNumero:hover {
+  background: red;
   color: white;
 }
 
@@ -107,7 +125,7 @@ ul {
 
 .containerMensagemProdutoComprado {
   position: fixed;
-  top: 60px;
+  top: 20px;
   left: 30px;
   background: white;
   height: 100px;
@@ -118,6 +136,7 @@ ul {
   justify-content: center;
   align-items: center;
   animation: slide-right ease-in-out .5s;
+  z-index: 3;
 }
 
 @keyframes slide-right {
@@ -125,6 +144,15 @@ ul {
     transform: translate3d(0, -120px, 0);
   } to {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 400px) {
+  .containerMensagemProdutoComprado {
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 50px;
   }
 }
 
@@ -139,6 +167,7 @@ ul {
   align-items: center;
   justify-content: center;
   position: fixed;
+  z-index: 1;
 }
 
 .modal {
@@ -153,6 +182,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 2;
   animation: show-up ease-in-out .3s; 
 }
 
@@ -226,6 +256,23 @@ ul {
 
 .modalCarrinhoVazio button {
   margin-top: 1rem;
+}
+
+@media (max-width: 960px) {
+  .modal {
+    max-width: 600px
+  }
+}
+
+@media (max-width: 655px) {
+  .modal {
+    max-width: 400px;
+  }
+}
+@media (max-width: 340px) {
+  .modal {
+    max-width: 290px;
+  }
 }
 
 /* Estilo do Loading */
