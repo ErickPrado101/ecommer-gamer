@@ -1,72 +1,37 @@
-# Getting Started with Create React App
+<h1 align="center">E-commerce de Games</h1>
 
-Available [here](https://inspiring-snyder-8dfdc3.netlify.app)
+<h2 align="center">Projeto simples de E-commerce para Games de consoles.</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img src="./public/assets/desktop.gif" /></p>
+<p align="center"><i>Interface no desktop.</i></p>
 
-## Available Scripts
+<h3 align="center">🚧 Projeto em processo de melhoria 🚧</h3>
 
-In the project directory, you can run:
+<p>Esse projeto foi um desafio pra mim, pois muitos conceitos de Javscript são fortíssimos aqui, e foi interessante aperfeiçoar esses conhecimentos.</p>
+<p>Foi utilizado React nesse projeto, mas de uma maneira bem simples.</p>
+<p>Se quiser somente visualizá-lo, pode acessá-lo <a href="https://inspiring-snyder-8dfdc3.netlify.app">aqui.</a></p>
 
-### `npm start`
+<h3 align="center">Descrição do projeto</h3>
+<p>O projeto consiste de um E-commerce bem simples onde se é possível:</p>
+<ul>
+  <li>Adicionar produtos ao carrinho</li>
+  <li>Remover produtos do carrinho</li>
+  <li>Organizar os produtos por preço, ordem alfabética ou Score (Existe um bug que ainda tenho que descobrir o que causa que ele só aplica novas ordenações somente após clicar no botão de compra.🤔)</li>
+  <li>Novas inclusões conforme for achando interessante</li>
+</ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h3>Melhorias a serem implementadas</h3>
+<ul>
+  <li>Modal do carrinho responsivo</li>
+  <li>Deixar os ítens comprados salvos no localStorage</li>
+  <li>Melhorar o visual para deixar mais atrativo</li>
+  <li>Resolver esse Bug infeliz da ordenação de lista(aposto que é uma bobagem😑)</li>
+</ul>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h3>Para clonar a aplicação e rodar localmente</h3>
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>Primeiramente deve-se fazer o <strong>Fork</strong> do repositório, depois execute esse comando na raiz da pasta da aplicação pelo Bash ou linha de comando qualquer:</p>
+<code>npm install</code>
+<p>Com isso o npm puxará todos os pacotes necessários para a aplicação junto de suas dependências.</p>
+<p>Com tudo pronto só executar o comando abaixo, também na pasta raiz do projeto:</p>
+<code>npm run start</code>
