@@ -24,6 +24,7 @@
 <ul>
   <li>Modal do carrinho responsivo</li>
   <li>Deixar os ítens comprados salvos no localStorage</li>
+  <li>Melhorar o visual para deixar mais atrativo</li>
   <li>Resolver esse Bug infeliz da ordenação de lista(aposto que é uma bobagem😑)</li>
 </ul>
 
