@@ -8,17 +8,21 @@ const Carrinho = () => {
     produtoCarrinho,
     setCarrinho,
   } = React.useContext(AppContext);
+
   const [frete, setFrete] = React.useState(0);
   const [valorTotalProdutos, setValorTotalProdutos] = React.useState(0);
 
-  const total = valorTotalProdutos + frete;
+  function total() {
+    const totalGeral = (total <= 250) ? (valorTotalProdutos + frete) : (valorTotalProdutos)
+    return converterParaReal(totalGeral);
+  }
 
   React.useEffect(() => {
     calculoFrete(carrinho);
   });
 
   function calculoFrete(qntItens) {
-    (total < 250) ? setFrete(qntItens * 10) : setFrete(0)
+    (total <= 250) ? setFrete(qntItens * 10) : setFrete('Grátis')
   }
 
   React.useEffect(() => {
@@ -97,7 +101,7 @@ const Carrinho = () => {
               SubTotal:{" "}
               {carrinho > 0 ? converterParaReal(valorTotalProdutos) : "0"}
             </p>
-            <p>Total: {converterParaReal(total)}</p>
+            <p>Total: {total()}</p>
             <button className="btn">Finalizar Compra</button>
           </div>
         )}

@@ -3,14 +3,14 @@ import { AppContext } from "../Context/AppContext";
 
 const Produto = () => {
 
-  const { carrinho, setCarrinho, produto, setProdutoCarrinho, produtoCarrinho} = React.useContext(AppContext)
+  const { carrinho, setCarrinho, setProdutoCarrinho, produtoCarrinho, ordem} = React.useContext(AppContext)
 
   function addCarrinho(produtoComprado) {
     setCarrinho(carrinho+1);
     setProdutoCarrinho([...produtoCarrinho, produtoComprado]);
   }
 
-  return produto.map((item, index) => {
+  return ordem.map((item, index) => {
     return (
       <div className="produto" key={index}>
         <div className="produtoCounteudo">

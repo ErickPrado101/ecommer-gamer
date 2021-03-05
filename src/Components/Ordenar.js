@@ -2,21 +2,21 @@ import React from "react";
 import { AppContext } from "../Context/AppContext";
 
 const Ordenar = () => {
-  const { setOrdem, produto } = React.useContext(AppContext)
+  const { ordem, setNovaOrdem } = React.useContext(AppContext)
 
   function orgPreco() {
-    setOrdem(
-      produto.sort((a, b) => a.price < b.price ? -1 : a.price === b.price ? 0 : 1));
+    setNovaOrdem(
+      ordem.sort((a, b) => a.price - b.price));
   }
 
   function orgScore() {
-    setOrdem(
-      produto.sort((a, b) => a.score < b.score ? -1 : a.score === b.score ? 0 : 1));
+    setNovaOrdem(
+      ordem.sort((a, b) => a.score - b.score));
   }
 
   function orgAZ() {
-    setOrdem(
-      produto.sort((a, b) => a.name < b.name ? -1 : a.name === b.name ? 0 : 1));
+    setNovaOrdem(
+      ordem.sort((a, b) => a.name < b.name ? -1 : a.name === b.name ? 0 : 1));
   }
 
   return (

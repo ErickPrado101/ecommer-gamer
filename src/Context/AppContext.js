@@ -6,6 +6,7 @@ export function GeneralContext({children}) {
     const [carrinho, setCarrinho] = React.useState(0);
     const [produto, setProduto] = React.useState(null);
     const [ordem, setOrdem] = React.useState(null);
+    const [novaOrdem, setNovaOrdem] = React.useState(null);
     const [carregado, setCarregado] = React.useState(null);
     const [paginaCarrinho, setPaginaCarrinho] = React.useState(false);
     const [produtoCarrinho, setProdutoCarrinho] = React.useState([]);
@@ -20,9 +21,8 @@ export function GeneralContext({children}) {
       }, []);
 
       React.useEffect(() => {
-        setProduto(ordem);
-      }, [ordem]);
-
+        setOrdem(produto)
+      }, [produto])
 
     return (
         <AppContext.Provider value={{
@@ -35,7 +35,9 @@ export function GeneralContext({children}) {
             carregado,
             paginaCarrinho,
             setProdutoCarrinho,
-            produtoCarrinho
+            produtoCarrinho,
+            novaOrdem,
+            setNovaOrdem
         }}>
             {children}
         </AppContext.Provider>
