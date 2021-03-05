@@ -1,10 +1,11 @@
 import React from "react";
 import Carregando from "./Carregando.js";
-import Produto from "./Produto.js";
+import Produto from "./ListaProduto.js";
 import Ordenar from "./Ordenar.js";
 import { AppContext } from "../Context/AppContext.js";
 
-const ListaProdutos = () => {
+const CorpoPagina = () => {
+
   const { produto, carregado } = React.useContext(AppContext)
   
   if(produto === null) return null
@@ -22,4 +23,4 @@ const ListaProdutos = () => {
   );
 };
 
-export default ListaProdutos;
+export default CorpoPagina;

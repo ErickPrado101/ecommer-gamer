@@ -1,7 +1,7 @@
 import React from "react";
 import { AppContext } from "../Context/AppContext";
 
-const Carrinho = () => {
+const ModalCarrinho = () => {
   const {
     carrinho,
     setPaginaCarrinho,
@@ -110,4 +110,4 @@ const Carrinho = () => {
   );
 };
 
-export default Carrinho;
+export default ModalCarrinho;

@@ -1,12 +1,12 @@
 import React from "react";
 import { AppContext } from "../Context/AppContext";
-import Carrinho from "./Carrinho";
+import ModalCarrinho from "./ModalCarrinho";
 
 const Header = () => {
   
   const { carrinho, paginaCarrinho, setPaginaCarrinho } = React.useContext(AppContext)
 
-  if (paginaCarrinho) return <Carrinho />
+  if (paginaCarrinho) return <ModalCarrinho />
   return (    
     <header className="header">
       <nav className="nav">
