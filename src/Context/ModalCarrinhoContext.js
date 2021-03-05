@@ -1,19 +1,21 @@
 import React from "react";
 
-export const ModalCarrinhoContext = React.createContext()
+export const ModalCarrinhoContext = React.createContext();
 
-export function ModalContext({children}) {
-    const [frete, setFrete] = React.useState(0);
-    const [valorTotalProdutos, setValorTotalProdutos] = React.useState(0);
-
-    function total() {
-    const totalGeral = (total <= 250) ? (valorTotalProdutos + frete) : (valorTotalProdutos)
-    return converterParaReal(totalGeral);
-  }
+export function ModalContext({ children }) {
+  const [frete, setFrete] = React.useState(0);
+  const [somaValorProdutos, setsomaValorProdutos] = React.useState(0);
+  const [subtotal, setSubtotal] = React.useState(0);
 
   function calculoFrete(qntItens) {
-    (total <= 250) ? setFrete(qntItens * 10) : setFrete('Grátis')
-  }  
+    const fretePorItem = qntItens * 10;
+    (subtotal < 250) ? setFrete(fretePorItem) : setFrete('Grátis');
+    total();
+  }
+
+  function total() {
+      (subtotal < 250) ? (setSubtotal(somaValorProdutos + frete)) : setSubtotal(somaValorProdutos);
+  }
 
   function puxarPrecosProdutosCarrinho(produtoCarrinho) {
     if (produtoCarrinho.length > 0) {
@@ -21,7 +23,7 @@ export function ModalContext({children}) {
       const somaTotal = precosDosProdutos.reduce(
         (acc, valor) => (acc += valor)
       );
-      setValorTotalProdutos(somaTotal);
+      setsomaValorProdutos(somaTotal);
     }
   }
 
@@ -32,16 +34,18 @@ export function ModalContext({children}) {
     });
   }
 
-    return (
-        <ModalCarrinhoContext.Provider value={{
-            calculoFrete,
-            puxarPrecosProdutosCarrinho,
-            converterParaReal,
-            total,
-            frete,
-            valorTotalProdutos
-        }}>
-            {children}
-        </ModalCarrinhoContext.Provider>
-    )
+  return (
+    <ModalCarrinhoContext.Provider
+      value={{
+        calculoFrete,
+        puxarPrecosProdutosCarrinho,
+        converterParaReal,
+        subtotal,
+        frete,
+        somaValorProdutos,
+      }}
+    >
+      {children}
+    </ModalCarrinhoContext.Provider>
+  );
 }

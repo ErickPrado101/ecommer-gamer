@@ -14,9 +14,9 @@ const ModalCarrinho = () => {
     calculoFrete,
     puxarPrecosProdutosCarrinho,
     converterParaReal,
-    total,
+    subtotal,
     frete,
-    valorTotalProdutos,
+    somaValorProdutos,
   } = React.useContext(ModalCarrinhoContext);
 
   React.useEffect(() => {
@@ -80,9 +80,11 @@ const ModalCarrinho = () => {
             </p>
             <p>
               <span>SubTotal:</span>{" "}
-              {carrinho > 0 ? converterParaReal(valorTotalProdutos) : "0"}
+              {carrinho > 0 ? converterParaReal(somaValorProdutos) : "0"}
             </p>
-            <p><span>Total:</span> {total()}</p>
+            <p>
+              <span>Total:</span> {converterParaReal(subtotal)}
+            </p>
             <button className="btn">Finalizar Compra</button>
           </div>
         )}
