@@ -103,6 +103,31 @@ ul {
   }
 }
 
+/* Mensagem ao comprar produto */
+
+.containerMensagemProdutoComprado {
+  position: fixed;
+  top: 60px;
+  left: 30px;
+  background: white;
+  height: 100px;
+  width: 350px;
+  border: 3px solid grey;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slide-right ease-in-out .5s;
+}
+
+@keyframes slide-right {
+  from {
+    transform: translate3d(0, -120px, 0);
+  } to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 /* Modal */
 
 .modalContainer {

@@ -1,5 +1,6 @@
 import React from "react";
 import { AppContext } from "../Context/AppContext";
+import { ModalCarrinhoContext } from "../Context/ModalCarrinhoContext";
 
 const ModalCarrinho = () => {
   const {
@@ -9,42 +10,22 @@ const ModalCarrinho = () => {
     setCarrinho,
   } = React.useContext(AppContext);
 
-  const [frete, setFrete] = React.useState(0);
-  const [valorTotalProdutos, setValorTotalProdutos] = React.useState(0);
-
-  function total() {
-    const totalGeral = (total <= 250) ? (valorTotalProdutos + frete) : (valorTotalProdutos)
-    return converterParaReal(totalGeral);
-  }
+  const {
+    calculoFrete,
+    puxarPrecosProdutosCarrinho,
+    converterParaReal,
+    total,
+    frete,
+    valorTotalProdutos,
+  } = React.useContext(ModalCarrinhoContext);
 
   React.useEffect(() => {
     calculoFrete(carrinho);
   });
 
-  function calculoFrete(qntItens) {
-    (total <= 250) ? setFrete(qntItens * 10) : setFrete('Grátis')
-  }
-
   React.useEffect(() => {
     puxarPrecosProdutosCarrinho(produtoCarrinho);
   });
-
-  function puxarPrecosProdutosCarrinho(produtoCarrinho) {
-    if (produtoCarrinho.length > 0) {
-      const precosDosProdutos = produtoCarrinho.map((item) => item.price);
-      const somaTotal = precosDosProdutos.reduce(
-        (acc, valor) => (acc += valor)
-      );
-      setValorTotalProdutos(somaTotal);
-    }
-  }
-
-  function converterParaReal(valor) {
-    return valor.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-  }
 
   function removerProdutoCarrinho(index) {
     produtoCarrinho.splice(index, 1);

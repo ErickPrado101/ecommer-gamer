@@ -6,7 +6,8 @@ const Header = () => {
   
   const { carrinho, paginaCarrinho, setPaginaCarrinho } = React.useContext(AppContext)
 
-  if (paginaCarrinho) return <ModalCarrinho />
+  if (paginaCarrinho) return (
+    <ModalCarrinho />)
   return (    
     <header className="header">
       <nav className="nav">

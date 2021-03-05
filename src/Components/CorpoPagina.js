@@ -6,7 +6,7 @@ import { AppContext } from "../Context/AppContext.js";
 
 const CorpoPagina = () => {
 
-  const { produto, carregado } = React.useContext(AppContext)
+  const { produto, carregado} = React.useContext(AppContext)
   
   if(produto === null) return null
   return (
