@@ -41,7 +41,7 @@ const ModalCarrinho = () => {
         >
           X
         </button>
-        <h1>Seus Produtos</h1>
+        <h2>Seus Produtos</h2>
         <div className="modalProdutosNoCarrinho">
           {carrinho > 0 ? (
             produtoCarrinho.map((item, index) => {
@@ -58,7 +58,7 @@ const ModalCarrinho = () => {
                     <p>{item.name}</p>
                   </div>
                   <button onClick={() => removerProdutoCarrinho(index)}>
-                    🗑
+                    <img src="./assets/removefromcart.svg" alt="Remover do carrinho"></img>
                   </button>
                 </div>
               );

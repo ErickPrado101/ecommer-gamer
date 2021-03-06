@@ -24,10 +24,12 @@ const Produto = () => {
           </p>
           <p>{item.name}</p>
         </div>
-        <p className="scoreProduto">Score: {item.score}</p>        
-        <button className="btn btnProduto" onClick={() => addCarrinho(item)}>
-          + Adicionar ao Carrinho
-        </button>
+        <div className="produtoScoreEBotao">
+          <p className="scoreProduto">Score: {item.score}</p>        
+          <button className="btn btnProduto" onClick={() => addCarrinho(item)}>
+            + Adicionar ao Carrinho
+          </button>
+        </div>
       </div>
     );
   });
