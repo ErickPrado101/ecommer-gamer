@@ -18,11 +18,12 @@
   <li>Remover produtos do carrinho</li>
   <li>Organizar os produtos por preço, ordem alfabética ou Score (Existe um bug que ainda tenho que descobrir o que causa que ele só aplica novas ordenações somente após clicar no botão de compra.🤔)</li>
   <li>Novas inclusões conforme for achando interessante</li>
+  <li>Site responsivo</li>
 </ul>
 
 <h3>Melhorias a serem implementadas</h3>
 <ul>
-  <li>Modal do carrinho responsivo</li>
+  <li>Modal do carrinho responsivo ✅</li>
   <li>Deixar os ítens comprados salvos no localStorage</li>
   <li>Melhorar o visual para deixar mais atrativo</li>
   <li>Resolver esse Bug infeliz da ordenação de lista(aposto que é uma bobagem😑)</li>
