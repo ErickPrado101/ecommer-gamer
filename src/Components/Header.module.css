@@ -1,0 +1,74 @@
+.header {
+    background: radial-gradient(circle, rgba(136,119,255,1) 0%, rgba(102,85,221,1) 71%);
+    box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
+  }
+  .logoImg {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .logo{
+    color: white;
+    transition: .3s;
+  }
+  .logo:hover {
+    color: rgba(245,245,245, .5);
+    transition: .3s;
+  }
+  .nav {
+    display: flex;
+    max-width: 900px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin: 0 auto;  
+  }
+  
+  .nav a {
+    font-size: 2rem;
+  }
+  
+  .carrinhoMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+  }
+  .carrinhoMenu:hover {
+    transform: scale(1.1);
+    transition: .3s;
+  }
+  .carrinhoMenu img {
+    height: 30px;
+    width: 30px;
+  }
+  .carrinhoNumero {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    padding: 0.1rem 0.3rem;
+    bottom: -8px;
+    right: 0;
+    color: red;
+    font-size: 0.9rem;
+    transition: ease-in-out .3s;
+  }
+  
+  .carrinhoNumero:hover {
+    background: red;
+    color: white;
+  }
+  
+  @media (max-width: 960px) {
+    .nav {
+      max-width: 500px;
+    }
+  }
+  
+  @media (max-width: 570px) {
+    .nav {
+      max-width: 300px;
+    }
+  }

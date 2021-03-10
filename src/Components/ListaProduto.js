@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ListaProdutos.module.css"
 import { AppContext } from "../Context/AppContext";
 
 const Produto = () => {
@@ -13,10 +14,10 @@ const Produto = () => {
 
   return ordem.map((item, index) => {
     return (
-      <div className="produto" key={index}>
-        <div className="produtoCounteudo">
+      <div className={styles.produto} key={index}>
+        <div className={styles.produtoCounteudo}>
           <img src={`./assets/${item.image}`} alt={item.name} />
-          <p className="precoProduto">
+          <p className={styles.precoProduto}>
             {item.price.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
@@ -24,9 +25,9 @@ const Produto = () => {
           </p>
           <p>{item.name}</p>
         </div>
-        <div className="produtoScoreEBotao">
-          <p className="scoreProduto">Score: {item.score}</p>        
-          <button className="btn btnProduto" onClick={() => addCarrinho(item)}>
+        <div className={styles.produtoScoreEBotao}>
+          <p className={styles.scoreProduto}>Score: {item.score}</p>        
+          <button className={styles.btnProduto + " btn"} onClick={() => addCarrinho(item)}>
             + Adicionar ao Carrinho
           </button>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Ordenar.module.css"
 import { AppContext } from "../Context/AppContext";
 
 const Ordenar = () => {
@@ -20,16 +21,16 @@ const Ordenar = () => {
   }
 
   return (
-    <div className="headerLista">
+    <div className={styles.headerLista}>
       <h2>Lista de Produtos</h2>
       <p>Ordenar por: </p>
-      <button className="btn btnOrg" onClick={orgPreco}>
+      <button className={styles.btnOrg + " btn"} onClick={orgPreco}>
         Preço
       </button>
-      <button className="btn btnOrg" onClick={orgScore}>
+      <button className={styles.btnOrg + " btn"} onClick={orgScore}>
         Popularidade (Score)
       </button>
-      <button className="btn btnOrg" onClick={orgAZ}>
+      <button className={styles.btnOrg + " btn"} onClick={orgAZ}>
         Ordem Alfabética
       </button>
     </div>

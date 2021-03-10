@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ModalCarrinho.module.css";
 import { AppContext } from "../Context/AppContext";
 import { ModalCarrinhoContext } from "../Context/ModalCarrinhoContext";
 
@@ -33,23 +34,23 @@ const ModalCarrinho = () => {
   }
 
   return (
-    <div className="modalContainer">
-      <div className="modal">
+    <div className={styles.modalContainer}>
+      <div className={styles.modal}>
         <button
-          className="modalBotaoFechar"
+          className={styles.modalBotaoFechar}
           onClick={() => setPaginaCarrinho(false)}
         >
           X
         </button>
         <h2>Seus Produtos</h2>
-        <div className="modalProdutosNoCarrinho">
+        <div className={styles.modalProdutosNoCarrinho}>
           {carrinho > 0 ? (
             produtoCarrinho.map((item, index) => {
               return (
-                <div className="produtoCarrinho" key={index}>
-                  <div className="produtoCounteudo">
+                <div className={styles.produtoCarrinho} key={index}>
+                  <div className={styles.produtoComprado}>
                     <img src={`./assets/${item.image}`} alt={item.name} />
-                    <p className="precoProduto">
+                    <p className={styles.precoProduto}>
                       {item.price.toLocaleString("pt-BR", {
                         style: "currency",
                         currency: "BRL",
@@ -58,22 +59,28 @@ const ModalCarrinho = () => {
                     <p>{item.name}</p>
                   </div>
                   <button onClick={() => removerProdutoCarrinho(index)}>
-                    <img src="./assets/removefromcart.svg" alt="Remover do carrinho"></img>
+                    <img
+                      src="./assets/removefromcart.svg"
+                      alt="Remover do carrinho"
+                    ></img>
                   </button>
                 </div>
               );
             })
           ) : (
-            <div className="modalCarrinhoVazio">
+            <div className={styles.modalCarrinhoVazio}>
               <p>Seu carrinho está vazio.</p>
-              <button className="btn" onClick={() => setPaginaCarrinho(false)}>
+              <button
+                className={styles.btnVoltar + " btn"}
+                onClick={() => setPaginaCarrinho(false)}
+              >
                 Voltar
               </button>
             </div>
           )}
         </div>
         {carrinho > 0 && (
-          <div className="modalValorPagar">
+          <div className={styles.modalValorPagar}>
             <p>
               <span>Frete: </span>
               {converterParaReal(frete)}
@@ -85,7 +92,7 @@ const ModalCarrinho = () => {
             <p>
               <span>Total:</span> {converterParaReal(subtotal)}
             </p>
-            <button className="btn">Finalizar Compra</button>
+            <button className={styles.btnFinalizarCompra +" btn"}>Finalizar Compra</button>
           </div>
         )}
       </div>

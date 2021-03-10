@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './CorpoPagina.module.css'
 import Carregando from "./Carregando.js";
 import Produto from "./ListaProduto.js";
 import Ordenar from "./Ordenar.js";
@@ -10,11 +11,11 @@ const CorpoPagina = () => {
   
   if(produto === null) return null
   return (
-    <div className="mainContent">
+    <div className={styles.mainContent}>
       <Ordenar />
       {carregado ? (
-        <div className="containerListaProdutos">
-          <div className="listaProdutos">
+        <div className={styles.containerListaProdutos}>
+          <div className={styles.listaProdutos}>
             <Produto />
           </div>
         </div>

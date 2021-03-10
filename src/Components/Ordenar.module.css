@@ -1,0 +1,27 @@
+.headerLista {
+    padding: 2rem 0;
+    text-align: center;  
+  }
+  
+  .headerLista h2 {
+    font-size: 2rem;
+    color: #87f;
+  }
+  
+  .headerLista p {
+    margin: 5px 0 20px 0;
+    color: white;
+  }
+  .btnOrg {
+    margin-right: 10px;
+  }
+
+  @media (max-width: 650px) {
+    .headerLista {
+      display: flex;
+      flex-direction: column;
+    }
+    .headerLista button {
+      margin-bottom: 1rem;
+    }
+  }

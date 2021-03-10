@@ -1,0 +1,39 @@
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    background: black;
+    width: 100%;
+  }
+
+  .containerListaProdutos {
+    background: url('http://pixeljoint.com/files/icons/full/darkforestbackground_cont.png');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .listaProdutos {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 30px;
+    align-content: center;
+    justify-content: center;  
+  }
+
+  @media (max-width: 980px) {
+    .listaProdutos {
+      grid-template-columns: repeat(2, 300px);
+    }
+  }
+
+  @media (max-width: 650px) {
+  .listaProdutos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+  }
+}

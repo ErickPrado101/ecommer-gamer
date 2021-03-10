@@ -1,0 +1,49 @@
+.containerMensagemProdutoComprado {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    background: white;
+    height: 100px;
+    width: 350px;
+    border: 3px solid grey;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slide-right ease-in-out .5s;
+    z-index: 3;
+  }
+  
+  .carrinhoAnim {
+    width: 30px;
+    height: 30px;
+    animation: walking-cart ease-in-out 2s;
+  }
+  
+  @keyframes walking-cart {
+    from {
+      transform: translate3d(-90px,0, 0);
+      border-bottom: 1px solid #000;
+    } to {
+      transform: translate3d(90px,0,0);
+      border-bottom: 1px solid #000;
+    }
+  }
+  
+  @keyframes slide-right {
+    from {
+      transform: translate3d(0, -120px, 0);
+    } to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .containerMensagemProdutoComprado {
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 80px;
+    }
+  }

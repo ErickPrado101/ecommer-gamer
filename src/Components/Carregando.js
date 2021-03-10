@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./Carregando.module.css"
 
 const Carregando = () => {
   return (
-    <div className="loading">
+    <div className={styles.loading}>
       <span></span>
       <span></span>
       <span></span>

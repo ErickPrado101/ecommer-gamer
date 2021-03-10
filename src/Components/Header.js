@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Header.module.css";
 import { AppContext } from "../Context/AppContext";
 import ModalCarrinho from "./ModalCarrinho";
 
@@ -9,12 +10,12 @@ const Header = () => {
   if (paginaCarrinho) return (
     <ModalCarrinho />)
   return (    
-    <header className="header">
-      <nav className="nav">
-        <img className="logoImg" src="../assets/gamepad.svg" alt="gamepad"/>
-        <h1 className="logo">Games</h1>
-        <div className="carrinhoMenu" onClick={() => setPaginaCarrinho(true)}>
-          <p><img src="./assets/cart-icon.svg" alt="Carrinho" /><span className="carrinhoNumero">{carrinho}</span></p>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <img className={styles.logoImg} src="../assets/gamepad.svg" alt="gamepad"/>
+        <h1 className={styles.logo}>Games</h1>
+        <div className={styles.carrinhoMenu} onClick={() => setPaginaCarrinho(true)}>
+          <p><img src="./assets/cart-icon.svg" alt="Carrinho" /><span className={styles.carrinhoNumero}>{carrinho}</span></p>
           
         </div>
       </nav>
