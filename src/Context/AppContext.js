@@ -5,25 +5,20 @@ export const AppContext = React.createContext()
 export function GeneralContext({children}) {
     const [carrinho, setCarrinho] = React.useState(0);
     const [produto, setProduto] = React.useState(null);
-    const [ordem, setOrdem] = React.useState(null);
-    const [novaOrdem, setNovaOrdem] = React.useState(null);
-    const [carregado, setCarregado] = React.useState(null);
+    const [loading, setLoading] = React.useState(null);
     const [paginaCarrinho, setPaginaCarrinho] = React.useState(false);
     const [produtoCarrinho, setProdutoCarrinho] = React.useState([]);
     const [aparecerMensagemComprado, setAparecerMensagemComprado] = React.useState(false);
 
     React.useEffect(() => {
-        fetch("./products.json")
-          .then((r) => r.json())
-          .then((json) => {
-            setProduto(json);
-            setCarregado(true)
-          });
-      }, []);
-
-      React.useEffect(() => {
-        setOrdem(produto)
-      }, [produto])
+      setLoading(true);
+      fetch("./products.json")
+        .then((r) => r.json())
+        .then((json) => {
+          setProduto(json);
+          setLoading(false)
+        });
+    }, []);
 
       function handleMensagemDeCompra() {
         const timer = setTimeout(() => {
@@ -37,19 +32,15 @@ export function GeneralContext({children}) {
         <AppContext.Provider value={{
             carrinho,
             setCarrinho,
-            setOrdem,
             setPaginaCarrinho,
             produto,
-            ordem,
-            carregado,
+            loading,
             paginaCarrinho,
             setProdutoCarrinho,
             produtoCarrinho,
-            novaOrdem,
-            setNovaOrdem,
             aparecerMensagemComprado,
             setAparecerMensagemComprado,
-            handleMensagemDeCompra
+            handleMensagemDeCompra,
         }}>
             {children}
         </AppContext.Provider>

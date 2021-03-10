@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./ListaProdutos.module.css"
 import { AppContext } from "../Context/AppContext";
+import Carregando from "./Carregando.js"
 
 const Produto = () => {
 
-  const { carrinho, setCarrinho, setProdutoCarrinho, produtoCarrinho, ordem, handleMensagemDeCompra} = React.useContext(AppContext)
+  const { carrinho, setCarrinho, setProdutoCarrinho, produtoCarrinho, produto, handleMensagemDeCompra, loading} = React.useContext(AppContext)
 
   function addCarrinho(produtoComprado) {
     setCarrinho(carrinho+1);
@@ -12,7 +13,9 @@ const Produto = () => {
     handleMensagemDeCompra()
   }
 
-  return ordem.map((item, index) => {
+  if (produto === null) return null
+  if (loading) return <Carregando />
+  return produto.map((item, index) => {
     return (
       <div className={styles.produto} key={index}>
         <div className={styles.produtoCounteudo}>
