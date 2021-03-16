@@ -1,20 +1,27 @@
 import React from "react";
-import styles from "./ListaProdutos.module.css"
+import styles from "./ListaProdutos.module.css";
 import { AppContext } from "../Context/AppContext";
-import Carregando from "./Carregando.js"
+import Carregando from "./Carregando.js";
 
 const Produto = () => {
-
-  const { carrinho, setCarrinho, setProdutoCarrinho, produtoCarrinho, produto, handleMensagemDeCompra, loading} = React.useContext(AppContext)
+  const {
+    carrinho,
+    setCarrinho,
+    setProdutoCarrinho,
+    produtoCarrinho,
+    produto,
+    handleMensagemDeCompra,
+    loading,
+  } = React.useContext(AppContext);
 
   function addCarrinho(produtoComprado) {
-    setCarrinho(carrinho+1);
+    setCarrinho(carrinho + 1);
     setProdutoCarrinho([...produtoCarrinho, produtoComprado]);
-    handleMensagemDeCompra()
+    handleMensagemDeCompra();
   }
 
-  if (produto === null) return null
-  if (loading) return <Carregando />
+  if (produto === null) return null;
+  if (loading) return <Carregando />;
   return produto.map((item, index) => {
     return (
       <div className={styles.produto} key={index}>
@@ -29,8 +36,11 @@ const Produto = () => {
           <p>{item.name}</p>
         </div>
         <div className={styles.produtoScoreEBotao}>
-          <p className={styles.scoreProduto}>Score: {item.score}</p>        
-          <button className={styles.btnProduto + " btn"} onClick={() => addCarrinho(item)}>
+          <p className={styles.scoreProduto}>Score: {item.score}</p>
+          <button
+            className={styles.btnProduto + " btn"}
+            onClick={() => addCarrinho(item)}
+          >
             + Adicionar ao Carrinho
           </button>
         </div>

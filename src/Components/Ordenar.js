@@ -1,20 +1,22 @@
 import React from "react";
-import styles from "./Ordenar.module.css"
+import styles from "./Ordenar.module.css";
 import { AppContext } from "../Context/AppContext";
 
 const Ordenar = () => {
-  const { produto } = React.useContext(AppContext)
+  const { produto, setOrdem } = React.useContext(AppContext);
 
   function orgPreco() {
-    return produto.sort((a, b) => a.price - b.price);
+    setOrdem(produto.sort((a, b) => a.price - b.price));
   }
 
   function orgScore() {
-    return produto.sort((a, b) => a.score - b.score);
+    setOrdem(produto.sort((a, b) => a.score - b.score));
   }
 
   function orgAZ() {
-    return produto.sort((a, b) => a.name < b.name ? -1 : a.name === b.name ? 0 : 1);
+    setOrdem(
+      produto.sort((a, b) => (a.name < b.name ? -1 : a.name === b.name ? 0 : 1))
+    );
   }
 
   return (

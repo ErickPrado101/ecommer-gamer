@@ -7,16 +7,23 @@ export function ModalContext({ children }) {
   const [somaValorProdutos, setsomaValorProdutos] = React.useState(0);
   const [subtotal, setSubtotal] = React.useState(0);
 
-  const itensParaFreteGratis = 4
+  const itensParaFreteGratis = 4;
 
   function calculoFrete(qntItens) {
-    const fretePorItem = qntItens * 10;
-    (qntItens < itensParaFreteGratis) ? setFrete(fretePorItem) : setFrete('Grátis');
+    if (qntItens < itensParaFreteGratis) {
+      setFrete(qntItens * 10);
+    } else {
+      setFrete("Grátis");
+    }
     total();
   }
 
   function total() {
-      (subtotal <= itensParaFreteGratis) ? (setSubtotal(somaValorProdutos + frete)) : setSubtotal(somaValorProdutos);
+    if (!frete === "Grátis") {
+      setSubtotal(somaValorProdutos + frete);
+    } else {
+      setSubtotal(somaValorProdutos);
+    }
   }
 
   function puxarPrecosProdutosCarrinho(produtoCarrinho) {

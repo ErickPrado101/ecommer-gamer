@@ -22,11 +22,11 @@ const ModalCarrinho = () => {
 
   React.useEffect(() => {
     calculoFrete(carrinho);
-  });
+  }, [calculoFrete, carrinho]);
 
   React.useEffect(() => {
     puxarPrecosProdutosCarrinho(produtoCarrinho);
-  });
+  }, [puxarPrecosProdutosCarrinho, produtoCarrinho]);
 
   function removerProdutoCarrinho(index) {
     produtoCarrinho.splice(index, 1);
@@ -92,7 +92,9 @@ const ModalCarrinho = () => {
             <p>
               <span>Total:</span> {converterParaReal(subtotal)}
             </p>
-            <button className={styles.btnFinalizarCompra +" btn"}>Finalizar Compra</button>
+            <button className={styles.btnFinalizarCompra + " btn"}>
+              Finalizar Compra
+            </button>
           </div>
         )}
       </div>
