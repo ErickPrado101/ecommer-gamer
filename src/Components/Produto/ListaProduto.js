@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ListaProdutos.module.css";
-import { AppContext } from "../Context/AppContext";
-import Carregando from "./Carregando.js";
+import { AppContext } from "../../Context/AppContext";
+import Carregando from "../../Helpers/Carregando.js";
 
 const Produto = () => {
   const {

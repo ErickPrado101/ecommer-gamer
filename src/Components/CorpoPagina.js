@@ -1,15 +1,14 @@
 import React from "react";
-import styles from './CorpoPagina.module.css'
-import Carregando from "./Carregando.js";
-import Produto from "./ListaProduto.js";
-import Ordenar from "./Ordenar.js";
+import styles from "./CorpoPagina.module.css";
+import Carregando from "../Helpers/Carregando.js";
+import Produto from "./Produto/ListaProduto.js";
+import Ordenar from "./Produto/Ordenar.js";
 import { AppContext } from "../Context/AppContext.js";
 
 const CorpoPagina = () => {
+  const { produto, loading } = React.useContext(AppContext);
 
-  const { produto, loading} = React.useContext(AppContext)
-  
-  if(produto === null) return null
+  if (produto === null) return null;
   return (
     <div className={styles.mainContent}>
       <Ordenar />

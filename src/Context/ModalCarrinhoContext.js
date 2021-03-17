@@ -19,7 +19,7 @@ export function ModalContext({ children }) {
   }
 
   function total() {
-    if (!frete === "Grátis") {
+    if (!(frete === "Grátis")) {
       setSubtotal(somaValorProdutos + frete);
     } else {
       setSubtotal(somaValorProdutos);

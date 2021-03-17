@@ -12,7 +12,7 @@ export function GeneralContext({ children }) {
     aparecerMensagemComprado,
     setAparecerMensagemComprado,
   ] = React.useState(false);
-  const [ordem, setOrdem] = React.useState(null);
+  const [itemAOrdernar, setItemAOrdernar] = React.useState("");
 
   React.useEffect(() => {
     setLoading(true);
@@ -46,8 +46,8 @@ export function GeneralContext({ children }) {
         aparecerMensagemComprado,
         setAparecerMensagemComprado,
         handleMensagemDeCompra,
-        ordem,
-        setOrdem,
+        itemAOrdernar,
+        setItemAOrdernar,
       }}
     >
       {children}

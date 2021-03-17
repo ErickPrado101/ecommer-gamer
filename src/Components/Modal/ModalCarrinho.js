@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ModalCarrinho.module.css";
-import { AppContext } from "../Context/AppContext";
-import { ModalCarrinhoContext } from "../Context/ModalCarrinhoContext";
+import { AppContext } from "../../Context/AppContext";
+import { ModalCarrinhoContext } from "../../Context/ModalCarrinhoContext";
 
 const ModalCarrinho = () => {
   const {
@@ -33,8 +33,14 @@ const ModalCarrinho = () => {
     setCarrinho(carrinho - 1);
   }
 
+  function handleClickFora({ target, currentTarget }) {
+    if (target === currentTarget) {
+      setPaginaCarrinho(false);
+    }
+  }
+
   return (
-    <div className={styles.modalContainer}>
+    <div className={styles.modalContainer} onClick={handleClickFora}>
       <div className={styles.modal}>
         <button
           className={styles.modalBotaoFechar}
