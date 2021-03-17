@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./ModalCarrinho.module.css";
 import { AppContext } from "../../Context/AppContext";
 import { ModalCarrinhoContext } from "../../Context/ModalCarrinhoContext";
+import ModalValorPagar from "./ModalValorPagar";
+import ModalCarrinhoVazio from "./ModalCarrinhoVazio";
+import ModalProduto from "./ModalProduto";
 
 const ModalCarrinho = () => {
   const {
@@ -11,14 +14,9 @@ const ModalCarrinho = () => {
     setCarrinho,
   } = React.useContext(AppContext);
 
-  const {
-    calculoFrete,
-    puxarPrecosProdutosCarrinho,
-    converterParaReal,
-    subtotal,
-    frete,
-    somaValorProdutos,
-  } = React.useContext(ModalCarrinhoContext);
+  const { calculoFrete, puxarPrecosProdutosCarrinho } = React.useContext(
+    ModalCarrinhoContext
+  );
 
   React.useEffect(() => {
     calculoFrete(carrinho);
@@ -53,56 +51,18 @@ const ModalCarrinho = () => {
           {carrinho > 0 ? (
             produtoCarrinho.map((item, index) => {
               return (
-                <div className={styles.produtoCarrinho} key={index}>
-                  <div className={styles.produtoComprado}>
-                    <img src={`./assets/${item.image}`} alt={item.name} />
-                    <p className={styles.precoProduto}>
-                      {item.price.toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
-                    </p>
-                    <p>{item.name}</p>
-                  </div>
-                  <button onClick={() => removerProdutoCarrinho(index)}>
-                    <img
-                      src="./assets/removefromcart.svg"
-                      alt="Remover do carrinho"
-                    ></img>
-                  </button>
-                </div>
+                <ModalProduto
+                  item={item}
+                  index={index}
+                  removerProdutoCarrinho={removerProdutoCarrinho}
+                />
               );
             })
           ) : (
-            <div className={styles.modalCarrinhoVazio}>
-              <p>Seu carrinho está vazio.</p>
-              <button
-                className={styles.btnVoltar + " btn"}
-                onClick={() => setPaginaCarrinho(false)}
-              >
-                Voltar
-              </button>
-            </div>
+            <ModalCarrinhoVazio setPaginaCarrinho={setPaginaCarrinho} />
           )}
         </div>
-        {carrinho > 0 && (
-          <div className={styles.modalValorPagar}>
-            <p>
-              <span>Frete: </span>
-              {converterParaReal(frete)}
-            </p>
-            <p>
-              <span>SubTotal:</span>{" "}
-              {carrinho > 0 ? converterParaReal(somaValorProdutos) : "0"}
-            </p>
-            <p>
-              <span>Total:</span> {converterParaReal(subtotal)}
-            </p>
-            <button className={styles.btnFinalizarCompra + " btn"}>
-              Finalizar Compra
-            </button>
-          </div>
-        )}
+        {carrinho > 0 && <ModalValorPagar carrinho={carrinho} />}
       </div>
     </div>
   );

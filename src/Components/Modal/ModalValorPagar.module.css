@@ -1,0 +1,14 @@
+.modalValorPagar {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+  
+  .modalValorPagar span {
+    font-weight: bold;
+    color: green;
+  }
+  
+  .modalValorPagar button{
+    margin-top: 1rem;
+  }

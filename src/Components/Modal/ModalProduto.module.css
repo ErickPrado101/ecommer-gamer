@@ -1,0 +1,42 @@
+.produtoCarrinho {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+  }
+
+  .produtoCarrinho button {
+    border: none;
+    max-width: 50px;
+    background: none;
+    margin-top: 1rem;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+  }
+  
+  .produtoCarrinho button:hover {
+    transform: scale(1.1);
+  }
+  
+  .produtoCarrinho button img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .produtoComprado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 8.2rem;
+    max-height: 8rem;
+    height: 100%;
+}
+
+.produtoComprado img {
+  height: 100px;
+}
+
+.produtoComprado p {
+  font-size: 0.825rem;
+  text-align: center;
+}

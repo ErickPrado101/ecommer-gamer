@@ -1,0 +1,8 @@
+.modalCarrinhoVazio {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modalCarrinhoVazio button {
+    margin-top: 1rem;
+  }
