@@ -54,6 +54,7 @@ const ModalCarrinho = () => {
                 <ModalProduto
                   item={item}
                   index={index}
+                  key={index}
                   removerProdutoCarrinho={removerProdutoCarrinho}
                 />
               );
