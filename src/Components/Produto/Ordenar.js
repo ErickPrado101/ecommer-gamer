@@ -16,7 +16,7 @@ const Ordenar = () => {
   });
 
   return (
-    <div className={styles.headerLista}>
+    <section className={styles.headerLista}>
       <h2>Lista de Produtos</h2>
       <p>Ordenar por: </p>
       <button
@@ -37,7 +37,7 @@ const Ordenar = () => {
       >
         Ordem Alfabética
       </button>
-    </div>
+    </section>
   );
 };
 

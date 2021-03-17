@@ -10,18 +10,18 @@ const CorpoPagina = () => {
 
   if (produto === null) return null;
   return (
-    <div className={styles.mainContent}>
+    <main className={styles.mainContent}>
       <Ordenar />
       {loading ? (
         <Carregando />
       ) : (
-        <div className={styles.containerListaProdutos}>
+        <section className={styles.containerListaProdutos}>
           <div className={styles.listaProdutos}>
             <Produto />
           </div>
-        </div>
+        </section>
       )}
-    </div>
+    </main>
   );
 };
 
