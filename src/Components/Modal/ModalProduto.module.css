@@ -20,16 +20,18 @@
   .produtoCarrinho button img {
     height: 30px;
     width: 30px;
+    margin-bottom: 1rem;
   }
 
   .produtoComprado {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    align-items: center;
     max-width: 8.2rem;
     max-height: 8rem;
     height: 100%;
+    margin-bottom: 1rem;
 }
 
 .produtoComprado img {

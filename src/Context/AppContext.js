@@ -28,7 +28,7 @@ export function GeneralContext({ children }) {
     const timer = setTimeout(() => {
       setAparecerMensagemComprado(false);
       clearTimeout(timer);
-    }, 2000);
+    }, 1500);
     setAparecerMensagemComprado(true);
   }
 
