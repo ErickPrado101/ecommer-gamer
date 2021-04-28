@@ -63,7 +63,7 @@
   
   .modalProdutosNoCarrinho {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-start;
     padding-top: 2rem;
     width: 100%;
