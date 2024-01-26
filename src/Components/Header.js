@@ -14,10 +14,10 @@ const Header = () => {
       <nav className={styles.nav}>
         <img
           className={styles.logoImg}
-          src="./assets/gamepad.svg"
+          src="./assets/nexforce.svg"
           alt="gamepad"
         />
-        <h1 className={styles.logo}>Games</h1>
+        <h1 className={styles.logo}>Nexforce Games</h1>
         <div
           className={styles.carrinhoMenu}
           onClick={() => setPaginaCarrinho(true)}
